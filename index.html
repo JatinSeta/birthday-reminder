@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday reminder</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+   <div class="Main-Class">
+     <h1>Birthday reminder</h1>
+    <input type="text" placeholder="Name" id="name" class="Name-Filed">
+    <input type="text" placeholder="NickName(Optional)" id="nickName" class="NickName-Filed">
+    <input type="date" id="date" class="Date-Filed">
+    <select name="" id="option" class="Option">
+        <option value="">Select Your Options</option>
+        <option value="Father">Father</option>
+        <option value="Monther">Monther</option>
+        <option value="cousins">cousins</option>
+        <option value="Friends">Friends</option>
+    </select>
+    <div class="Chackbox-div">
+        <input type="checkbox" id="checkbox">
+        <p>You need gift Reminder</p>
+    </div>
+    <button onclick="Submit()" class="Button" id="Sumbite">Sumbite</button>
+    <p id="Erro"></p>
+   </div>
+   <div id="Card" class="Card-Main-Div">
+
+   </div>
+    <script src="./index.js"></script>
+</body>
+</html>

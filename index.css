@@ -1,0 +1,85 @@
+body{
+    font-family: sans-serif;
+    
+}
+
+.Main-Class{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 97vh;
+
+}
+input{
+    /* margin: 0.5%; */
+}
+.Chackbox-div{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    font-size: 3vh;
+}
+.Name-Filed{
+    width: 20%;
+    margin: 0.5%;
+    font-size: 3vh;
+}
+.NickName-Filed{
+    width: 20%;
+    margin: 0.5%;
+    font-size: 3vh;
+}
+.Date-Filed{
+    width: 20%;
+    margin: 0.5%;
+    font-size: 3vh;
+}
+.Option{
+    width: 20%;
+    margin: 0.5%;
+    font-size: 3vh;
+}
+.Button{
+    width: 20%;
+    margin: 0.5%;
+    font-size: 3vh;
+    background-color: white;
+
+}
+.Button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 2s;
+}
+button{
+    margin: 0.5%;
+    font-size: 3vh;
+    background-color: white;
+}
+button:hover{
+     background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 2s;
+}
+#Erro{
+    color: red;
+    font-size: 2.5vh;
+}
+.Card-Main-Div{
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+
+}
+.card-div{
+    background-color: red;
+    padding: 2%;
+    width: 25%;
+    margin: 1%;
+    color: white;
+    border-radius: 5%;
+}
