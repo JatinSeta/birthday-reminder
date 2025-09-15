@@ -3,7 +3,26 @@ let dataUser = []
 let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
 
-
+function Notification(){
+       Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+            alert("Permission granted");
+            notification = "granted"
+            location.reload();
+        } else if (permission === "denied") {
+            alert("Permission denied");
+              location.reload();
+              notification = "denied"
+        } else {
+            alert("Permission dismissed or closed");
+              location.reload();
+              notification = ""
+        }
+    }).catch((error) => {
+        console.error("Notification permission error:", error);
+    });
+}
+Notification()
 function Submit() {
 
 let nameFiled = document.getElementById("name").value
@@ -37,26 +56,7 @@ let checkbox = document.getElementById("checkbox")
 
     //Notfaction
 let notification = ""
-function Notification(){
-       Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-            alert("Permission granted");
-            notification = "granted"
-            location.reload();
-        } else if (permission === "denied") {
-            alert("Permission denied");
-              location.reload();
-              notification = "denied"
-        } else {
-            alert("Permission dismissed or closed");
-              location.reload();
-              notification = ""
-        }
-    }).catch((error) => {
-        console.error("Notification permission error:", error);
-    });
-}
-Notification()
+
     //Push in localStorage
 
 
