@@ -4,8 +4,13 @@ let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
 document.getElementById("Sumbite").addEventListener("click",function (){
     Notification.requestPermission().then((Permission)=>{
-        alert(Permission)
-          location.reload()
+        if(Permission === "granted"){
+            alert("granted")
+            location.reload()
+
+        }else if(Permission === "denied"){
+            alert("denied")
+        }
     }).catch((erro)=>{
         console.log(erro);
         
