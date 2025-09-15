@@ -2,20 +2,7 @@
 let dataUser = []
 let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
-document.getElementById("Sumbite").addEventListener("click", function () {
-    Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-            alert("Permission granted");
-            location.reload();
-        } else if (permission === "denied") {
-            alert("Permission denied");
-        } else {
-            alert("Permission dismissed or closed");
-        }
-    }).catch((error) => {
-        console.error("Notification permission error:", error);
-    });
-});
+
 
 function Submit() {
 
@@ -48,6 +35,27 @@ let checkbox = document.getElementById("checkbox")
         chacked = ""
     }
 
+    //Notfaction
+let notification = ""
+document.getElementById("Sumbite").addEventListener("click", function () {
+    Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+            alert("Permission granted");
+            notification = "granted"
+            location.reload();
+        } else if (permission === "denied") {
+            alert("Permission denied");
+              location.reload();
+              notification = "denied"
+        } else {
+            alert("Permission dismissed or closed");
+              location.reload();
+              notification = ""
+        }
+    }).catch((error) => {
+        console.error("Notification permission error:", error);
+    });
+});
     //Push in localStorage
 
 
@@ -56,7 +64,8 @@ let checkbox = document.getElementById("checkbox")
         nickName: nickNameFiled,
         data: dateFiled,
         option: optionFiled,
-        chackbox: chacked
+        chackbox: chacked,
+        
     }
     if (getData === null) {
         dataUser.push(obj)
@@ -66,11 +75,13 @@ let checkbox = document.getElementById("checkbox")
         dataUser.push(obj)
     }
  localStorage.setItem("data", JSON.stringify(dataUser))
-  
+ localStorage.setItem("Notification",notification)
  
   
 }
 
+let birthday = []
+console.log(birthday);
 
 if(getData === null){
     let title = document.createElement('h1')
@@ -95,7 +106,11 @@ for (i = 0; i <= getData.length - 1; i++) {
     sevenDay.setDate(sevenDay.getDate() - 7)
     ThreeDay.setDate(ThreeDay.getDate() - 3)
     oneDay.setDate(oneDay.getDate() - 1)
+
+    let getNotfication = localStorage.getItem("Notification")
+    console.log(getNotfication);
     
+     
     if (sevenDay.getDate() == Today.getDate()) {
         if (nickName !== "") {
             if (chackboxchacked === "Chacked") {
@@ -110,7 +125,8 @@ for (i = 0; i <= getData.length - 1; i++) {
                 // let button = document.createElement('button')
                 // let buttontext = document.createTextNode('Click to More Reminder')
                 // button.appendChild(buttontext)
-                
+                if(getnotification === "granted"){
+                alert(`Coming Soon ${name} Birth-Day! \n In 7 days, after this date ${ToDay.getDate()}-${ToDay.getMonth()}-${ToDay.getFullYear()}  it's ${name} (${nickName})'s ${option} birthday. You need to buy a gift \n ${ToDay.getDate()}-${ToDay.getMonth()}-${ToDay.getFullYear()} `)
                 dateElement.appendChild(dateDetailes)
                 detailes.appendChild(text)
                 Name.appendChild(textNode)
@@ -119,6 +135,16 @@ for (i = 0; i <= getData.length - 1; i++) {
                 ParentDiv.appendChild(detailes)
                 cardDiv.appendChild(ParentDiv)
                 ParentDiv.setAttribute("class","card-div")
+                }else {
+                dateElement.appendChild(dateDetailes)
+                detailes.appendChild(text)
+                Name.appendChild(textNode)
+                ParentDiv.appendChild(Name)
+                ParentDiv.appendChild(dateElement)
+                ParentDiv.appendChild(detailes)
+                cardDiv.appendChild(ParentDiv)
+                ParentDiv.setAttribute("class","card-div")
+                }
             
             } else {
                 let ParentDiv = document.createElement('div')
@@ -438,10 +464,6 @@ for (i = 0; i <= getData.length - 1; i++) {
             }
         }
     }
-
-
-
-    
     
 }
 
