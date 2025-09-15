@@ -2,6 +2,14 @@
 let dataUser = []
 let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
+document.getElementById("Sumbite").addEventListener("click",function (){
+    Notification.requestPermission().then((Permission)=>{
+        alert(Permission)
+    }).catch((erro)=>{
+        console.log(erro);
+        
+    })
+})
 function Submit() {
 
 let nameFiled = document.getElementById("name").value
@@ -47,12 +55,14 @@ let checkbox = document.getElementById("checkbox")
         dataUser.push(obj)
     } else {
         dataUser = getData
+        
         dataUser.push(obj)
     }
-    localStorage.setItem("data", JSON.stringify(dataUser))
+ localStorage.setItem("data", JSON.stringify(dataUser))
+  
    location.reload()
+  
 }
-
 
 
 if(getData === null){
@@ -430,7 +440,7 @@ for (i = 0; i <= getData.length - 1; i++) {
 
 }
 
-    
+
      function Reminder(index){
                    let data = JSON.parse(localStorage.getItem("data"))
                 for(i=0;i<=data.length-1;i++){
@@ -438,4 +448,5 @@ for (i = 0; i <= getData.length - 1; i++) {
                 }
                 localStorage.setItem("data",JSON.stringify(data))
                 location.reload()
+
             } 
