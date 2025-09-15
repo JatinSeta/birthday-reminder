@@ -2,20 +2,21 @@
 let dataUser = []
 let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
-document.getElementById("Sumbite").addEventListener("click",function (){
-    Notification.requestPermission().then((Permission)=>{
-        if(Permission === "granted"){
-            alert("granted")
-            location.reload()
-
-        }else if(Permission === "denied"){
-            alert("denied")
+document.getElementById("Submit").addEventListener("click", function () {
+    Notification.requestPermission().then((permission) => {
+        if (permission === "granted") {
+            alert("Permission granted");
+            location.reload();
+        } else if (permission === "denied") {
+            alert("Permission denied");
+        } else {
+            alert("Permission dismissed or closed");
         }
-    }).catch((erro)=>{
-        console.log(erro);
-        
-    })
-})
+    }).catch((error) => {
+        console.error("Notification permission error:", error);
+    });
+});
+
 function Submit() {
 
 let nameFiled = document.getElementById("name").value
