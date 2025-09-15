@@ -2,7 +2,7 @@
 let dataUser = []
 let getData = JSON.parse(localStorage.getItem("data"))
 let cardDiv = document.getElementById("Card")
-document.getElementById("Submit").addEventListener("click", function () {
+document.getElementById("Sumbite").addEventListener("click", function () {
     Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
             alert("Permission granted");
