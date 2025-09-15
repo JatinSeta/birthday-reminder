@@ -5,6 +5,7 @@ let cardDiv = document.getElementById("Card")
 document.getElementById("Sumbite").addEventListener("click",function (){
     Notification.requestPermission().then((Permission)=>{
         alert(Permission)
+          location.reload()
     }).catch((erro)=>{
         console.log(erro);
         
@@ -60,7 +61,7 @@ let checkbox = document.getElementById("checkbox")
     }
  localStorage.setItem("data", JSON.stringify(dataUser))
   
-   location.reload()
+ 
   
 }
 
