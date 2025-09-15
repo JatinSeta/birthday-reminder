@@ -37,8 +37,8 @@ let checkbox = document.getElementById("checkbox")
 
     //Notfaction
 let notification = ""
-document.getElementById("Sumbite").addEventListener("click", function () {
-    Notification.requestPermission().then((permission) => {
+function Notification(){
+       Notification.requestPermission().then((permission) => {
         if (permission === "granted") {
             alert("Permission granted");
             notification = "granted"
@@ -55,7 +55,8 @@ document.getElementById("Sumbite").addEventListener("click", function () {
     }).catch((error) => {
         console.error("Notification permission error:", error);
     });
-});
+}
+Notification()
     //Push in localStorage
 
 
